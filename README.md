@@ -1,3 +1,3 @@
-# SAM TS Boiler
+# cdk-ts-boiler
 
-SAM Typescript Boilerplate
+CDK Typescript Boilerplate

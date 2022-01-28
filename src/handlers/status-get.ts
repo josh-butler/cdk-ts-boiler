@@ -1,8 +1,10 @@
-import { ApiGatewayEvent } from '../../common/apigateway/apigateway-event';
-import { ApiGatewayResponse } from '../../common/apigateway/apigateway-response';
+import { ApiGatewayEvent } from '../common/apigateway/apigateway-event';
+import { ApiGatewayResponse } from '../common/apigateway/apigateway-response';
 
-import { expires } from '../../common/util/util';
-import config from '../../common/config';
+import { expires } from '../common/util/util';
+import config from '../common/config';
+
+// import { v4 as uuidv4 } from 'uuid';
 
 export const handler = async (event: ApiGatewayEvent): Promise<ApiGatewayResponse> => {
   console.log('event: ', event);
@@ -12,6 +14,8 @@ export const handler = async (event: ApiGatewayEvent): Promise<ApiGatewayRespons
 
   console.log('EventBusName: ', config.EventBusName);
   console.log('expires', expires());
+
+  // console.log('uuidv4: ', uuidv4());
 
   return { statusCode, body };
 };

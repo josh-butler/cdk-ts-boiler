@@ -1,4 +1,4 @@
-import { expires } from '../../../src/common/util/util';
+import {expires} from '../../../src/common/util/util';
 
 describe('test-util-util', () => {
   it('should-return-expires-number', async () => {

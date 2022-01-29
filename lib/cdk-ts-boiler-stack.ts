@@ -1,8 +1,8 @@
-import { Duration, Stack, StackProps } from 'aws-cdk-lib';
-import { Construct } from 'constructs';
+import {Duration, Stack, StackProps} from 'aws-cdk-lib';
+import {Construct} from 'constructs';
 
-import { Runtime } from 'aws-cdk-lib/aws-lambda';
-import { NodejsFunction } from 'aws-cdk-lib/aws-lambda-nodejs';
+import {Runtime} from 'aws-cdk-lib/aws-lambda';
+import {NodejsFunction} from 'aws-cdk-lib/aws-lambda-nodejs';
 
 export class CdkTsBoilerStack extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {

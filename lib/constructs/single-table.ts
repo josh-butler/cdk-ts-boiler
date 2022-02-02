@@ -10,6 +10,8 @@ export interface ISingleTable {
 
 export interface SingleTableProps {
   construct: Construct;
+  name: string;
+  nIndexes?: number;
 }
 
 export class SingleTable implements ISingleTable {
@@ -21,14 +23,26 @@ export class SingleTable implements ISingleTable {
     this.props = props;
   }
 
-  createDdbTable(tableName: string): Table {
-    const table = new Table(this.props.construct, tableName, {
+  createDdbTable(): Table {
+    const {construct, name, nIndexes = 0} = this.props;
+
+    const table = new Table(construct, name, {
       billingMode: BillingMode.PAY_PER_REQUEST,
       removalPolicy: RemovalPolicy.DESTROY,
       pointInTimeRecovery: false,
       partitionKey: {name: 'pk', type: AttributeType.STRING},
       sortKey: {name: 'sk', type: AttributeType.STRING},
     });
+
+    // add correct number of GSIs, if any
+    for (let i = 0; i < nIndexes; i++) {
+      const num = i + 1;
+      table.addGlobalSecondaryIndex({
+        indexName: `GSI${num}`,
+        partitionKey: {name: `GSI${num}pk`, type: AttributeType.STRING},
+        sortKey: {name: `GSI${num}sk`, type: AttributeType.STRING},
+      });
+    }
 
     return table;
   }

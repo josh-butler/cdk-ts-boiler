@@ -97,4 +97,4 @@ build: ## Build CDK app using local code
 	cdk synth --no-staging
 
 deploy: ## Deploy CDK app using local build
-	cdk deploy
+	cdk deploy --require-approval never --verbose

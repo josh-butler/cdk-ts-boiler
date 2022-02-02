@@ -1,4 +1,4 @@
 export interface ApiGatewayResponse {
-    statusCode: number;
-    body?: string;
+  statusCode: number;
+  body?: string;
 }

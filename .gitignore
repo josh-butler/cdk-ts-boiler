@@ -10,3 +10,5 @@ events/
 .env.local.json
 Makefile.env
 invoke.out
+coverage
+build

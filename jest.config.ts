@@ -1,7 +1,7 @@
-import type { Config } from '@jest/types';
+import type {Config} from '@jest/types';
 
 const config: Config.InitialOptions = {
-    globals: {
+  globals: {
     'ts-jest': {
       tsconfig: 'tsconfig.json',
     },
@@ -11,7 +11,7 @@ const config: Config.InitialOptions = {
     '^.+\\.(ts|tsx)$': 'ts-jest',
   },
   testMatch: ['**/test/**/*.[jt]s?(x)'],
-  testPathIgnorePatterns: ['dist/'],
+  testPathIgnorePatterns: ['dist/', 'build/'],
   testEnvironment: 'node',
 };
 

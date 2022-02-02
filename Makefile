@@ -40,7 +40,7 @@ endef
 export EVENT_LOCAL_JSON
 
 
-all: unit
+all: lint unit
 
 # test: lint coverage ## Run code linter, unit tests and code coverage report
 test: unit ## Run unit tests and code coverage report
@@ -72,7 +72,7 @@ local-init: ## Generate initial local dev support files
 
 lint: ## Run code linter
 	@echo "Linting code..."
-	@$(ESLINT) --quiet --ext .js $(SRC_PATH)
+	@$(ESLINT) --quiet --ext .js,.ts $(SRC_PATH)
 	@echo "Linting PASSED"
 
 unit: ## Run unit tests
